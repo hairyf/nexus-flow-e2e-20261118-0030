@@ -1,0 +1,1 @@
+{"name":"nexus-flow-e2e","private":true,"type":"module","scripts":{"test":"node --test"}}
