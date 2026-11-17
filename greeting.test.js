@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { farewell, greeting } from './greeting.js'
+import { farewell, feature2, greeting } from './greeting.js'
 
 test('greets the named person', () => {
   assert.equal(greeting('Nexus'), 'Hello, Nexus!')
@@ -36,4 +36,8 @@ test('says goodbye in Chinese', () => {
 
 test('farewell falls back to English for unknown languages', () => {
   assert.equal(farewell('Nexus', 'fr'), 'Goodbye, Nexus')
+})
+
+test('feature2 prefixes the name', () => {
+  assert.equal(feature2('Nexus'), 'feature2:Nexus')
 })
