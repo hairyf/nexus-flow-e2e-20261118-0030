@@ -3,14 +3,26 @@ const GREETINGS = {
   zh: (name) => `你好，${name}！`,
 }
 
+const FAREWELLS = {
+  en: (name) => `Goodbye, ${name}`,
+  zh: (name) => `再见，${name}`,
+}
+
 const DEFAULT_LANGUAGE = 'en'
 
 export function feature1(name) {
   return `feature1:${name}`
 }
 
-export function greeting(name, language = DEFAULT_LANGUAGE) {
+function resolveLanguage(language) {
   const code = String(language ?? DEFAULT_LANGUAGE).toLowerCase()
-  const key = code.startsWith('zh') ? 'zh' : 'en'
-  return GREETINGS[key](name)
+  return code.startsWith('zh') ? 'zh' : 'en'
+}
+
+export function greeting(name, language = DEFAULT_LANGUAGE) {
+  return GREETINGS[resolveLanguage(language)](name)
+}
+
+export function farewell(name, language = DEFAULT_LANGUAGE) {
+  return FAREWELLS[resolveLanguage(language)](name)
 }
