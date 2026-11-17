@@ -10,6 +10,14 @@ test('formats USD amounts with the dollar symbol and two decimals', () => {
   assert.equal(formatPrice(7, 'USD'), '$7.00')
 })
 
+test('formats JPY amounts with the yen symbol and no decimals', () => {
+  assert.equal(formatPrice(120, 'JPY'), '¥120')
+})
+
+test('throws for negative amounts', () => {
+  assert.throws(() => formatPrice(-1, 'CNY'), /negative/)
+})
+
 test('throws for unknown currencies', () => {
   assert.throws(() => formatPrice(1, 'EUR'), /Unsupported currency: EUR/)
 })
