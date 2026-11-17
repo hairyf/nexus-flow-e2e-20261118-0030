@@ -22,3 +22,7 @@ export function greeting(name, language = DEFAULT_LANGUAGE) {
 export function farewell(name, language = DEFAULT_LANGUAGE) {
   return FAREWELLS[resolveLanguage(language)](name)
 }
+
+export function feature3(name) {
+  return `feature3:${name}`
+}
