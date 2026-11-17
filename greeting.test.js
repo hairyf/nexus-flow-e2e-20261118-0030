@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { farewell, greeting } from './greeting.js'
+import { expectSharedVersion, farewell, greeting } from './greeting.js'
 
 test('greets the named person', () => {
   assert.equal(greeting('Nexus'), 'Hello, Nexus!')
@@ -36,4 +36,8 @@ test('says goodbye in Chinese', () => {
 
 test('farewell falls back to English for unknown languages', () => {
   assert.equal(farewell('Nexus', 'fr'), 'Goodbye, Nexus')
+})
+
+test('expectSharedVersion matches the shared version across projects', () => {
+  assert.equal(expectSharedVersion(), 2)
 })
