@@ -1,0 +1,3 @@
+export function mod3(x) {
+  return x * 3
+}
